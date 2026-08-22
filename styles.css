@@ -76,36 +76,37 @@ body {
 }
 
 /* ═══════════ BOTANICALS ═══════════ */
+/* vertical side borders — the invitation-card frame */
 .hero__botanical {
   position: absolute;
-  width: clamp(180px, 34vw, 380px);
+  top: 50%;
+  height: min(88svh, 940px);
+  width: auto;
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  filter: drop-shadow(0 10px 24px rgba(74, 52, 33, 0.12));
-  transform-origin: top center;
-  animation: botanicalSway 9s ease-in-out infinite alternate;
+  animation: botanicalSway 10s ease-in-out infinite alternate;
 }
-.hero__botanical--start {
-  top: -3%;
-  inset-inline-start: -6%;
-  rotate: 8deg;
+.hero__botanical--left {
+  left: 0;
+  transform: translateY(-50%) translateX(-30%);
 }
-.hero__botanical--end {
-  bottom: -4%;
-  inset-inline-end: -7%;
-  transform: scaleX(-1) rotate(174deg);
-  opacity: 0.85;
-  animation-delay: -4.5s;
+.hero__botanical--right {
+  right: 0;
+  transform: translateY(-50%) translateX(34%);
+  animation-delay: -5s;
 }
 @keyframes botanicalSway {
-  from { translate: 0 0; }
-  to   { translate: 0 10px; }
+  from { margin-top: 0; }
+  to   { margin-top: 12px; }
 }
-.hero > *:not(.hero__botanical) { position: relative; z-index: 1; }
+.hero > *:not(.hero__botanical):not(.hero__scroll) { position: relative; z-index: 1; }
+.hero__scroll { z-index: 1; }
 @media (max-width: 700px) {
-  .hero__botanical--end { display: none; }
-  .hero__botanical--start { width: clamp(220px, 56vw, 300px); top: -2%; inset-inline-start: -10%; }
+  .hero { padding-inline: 3rem; }
+  .hero__botanical { height: min(62svh, 560px); opacity: 0.92; }
+  .hero__botanical--left  { transform: translateY(-50%) translateX(-46%); }
+  .hero__botanical--right { transform: translateY(-50%) translateX(50%); }
 }
 
 .section__sprig {
@@ -606,7 +607,7 @@ body {
   .result.is-in .result__table,
   .nomatch.is-in { animation: none !important; }
   .hero__scroll-dot { animation: none; }
-  .hero__botanical { animation: none; }
+  .hero__botanical { animation: none !important; }
   * { transition-duration: 0.01ms !important; }
 }
 
