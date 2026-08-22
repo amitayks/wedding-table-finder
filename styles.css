@@ -103,10 +103,10 @@ body {
 .hero > *:not(.hero__botanical):not(.hero__scroll) { position: relative; z-index: 1; }
 .hero__scroll { z-index: 1; }
 @media (max-width: 700px) {
-  .hero { padding-inline: 3rem; }
-  .hero__botanical { height: min(62svh, 560px); opacity: 0.92; }
-  .hero__botanical--left  { transform: translateY(-50%) translateX(-46%); }
-  .hero__botanical--right { transform: translateY(-50%) translateX(50%); }
+  .hero { padding-inline: 3.4rem; }
+  .hero__botanical { height: min(54svh, 480px); opacity: 0.95; }
+  .hero__botanical--left  { transform: translateY(-50%) translateX(-68%); }
+  .hero__botanical--right { transform: translateY(-50%) translateX(70%); }
 }
 
 .section__sprig {
