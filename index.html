@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>החתונה שלנו ✦ מצאו את השולחן שלכם</title>
+  <meta name="description" content="כל פרטי האירוע — ואיפה אתם יושבים" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ambient background ornaments -->
+  <div class="bg-orn bg-orn--a" aria-hidden="true"></div>
+  <div class="bg-orn bg-orn--b" aria-hidden="true"></div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="hero" id="hero">
+    <p class="hero__overline reveal-load" data-stagger="0">אנחנו מתחתנים</p>
+    <div class="hero__rule reveal-load" data-stagger="1" aria-hidden="true"></div>
+    <h1 class="hero__names reveal-load" data-stagger="2">
+      <span id="groom-name">—</span>
+      <span class="hero__amp" aria-hidden="true">&amp;</span>
+      <span id="bride-name">—</span>
+    </h1>
+    <p class="hero__date reveal-load" data-stagger="3" id="event-date">—</p>
+    <p class="hero__venue-line reveal-load" data-stagger="4" id="hero-venue">—</p>
+    <a class="hero__cta reveal-load" data-stagger="5" href="#finder">איפה אני יושב/ת?</a>
+    <div class="hero__scroll reveal-load" data-stagger="6" aria-hidden="true">
+      <span class="hero__scroll-dot"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════ TABLE FINDER ═══════════ -->
+    <section class="finder section" id="finder" aria-labelledby="finder-title">
+      <div class="section__inner reveal">
+        <p class="section__overline">ההושבה</p>
+        <h2 class="section__title" id="finder-title">מצאו את השולחן שלכם</h2>
+        <p class="finder__hint">הקלידו את השם שלכם כפי שמופיע בהזמנה</p>
+
+        <div class="finder__box" id="finder-box">
+          <div class="finder__input-wrap">
+            <input
+              id="guest-input"
+              class="finder__input"
+              type="text"
+              inputmode="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="השם שלכם…"
+              aria-label="חיפוש שם אורח"
+              aria-describedby="finder-title" />
+            <button class="finder__clear" id="finder-clear" type="button" aria-label="נקו חיפוש" hidden>✕</button>
+          </div>
+          <ul class="finder__suggestions" id="suggestions" role="listbox" aria-label="הצעות"></ul>
+        </div>
+
+        <!-- result card -->
+        <div class="result" id="result" hidden>
+          <canvas class="result__confetti" id="confetti" aria-hidden="true"></canvas>
+          <p class="result__greeting" id="result-name">—</p>
+          <p class="result__label">השולחן שלכם</p>
+          <p class="result__table" id="result-table">—</p>
+          <button class="result__again" id="search-again" type="button">חיפוש נוסף</button>
+        </div>
+
+        <!-- no match card -->
+        <div class="nomatch" id="nomatch" hidden>
+          <p class="nomatch__title">לא מצאנו את השם 🤍</p>
+          <p class="nomatch__text">
+            נסו לבדוק את האיות, או פנו לעמדת הקבלה בכניסה — ישמחו לעזור לכם.
+          </p>
+          <button class="nomatch__again" id="nomatch-again" type="button">ננסה שוב</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ SCHEDULE ═══════════ -->
+    <section class="schedule section" id="schedule" aria-labelledby="schedule-title">
+      <div class="section__inner reveal">
+        <p class="section__overline">הערב שלנו</p>
+        <h2 class="section__title" id="schedule-title">לוח הזמנים</h2>
+        <ol class="timeline" id="timeline"><!-- filled by app.js --></ol>
+      </div>
+    </section>
+
+    <!-- ═══════════ VENUE ═══════════ -->
+    <section class="venue section" id="venue" aria-labelledby="venue-title">
+      <div class="section__inner reveal">
+        <p class="section__overline">איך מגיעים</p>
+        <h2 class="section__title" id="venue-title">המקום</h2>
+        <p class="venue__name" id="venue-name">—</p>
+        <p class="venue__address" id="venue-address">—</p>
+        <div class="venue__nav">
+          <a class="venue__btn venue__btn--waze" id="waze-link" href="#" target="_blank" rel="noopener">
+            נווטו עם Waze
+          </a>
+          <a class="venue__btn venue__btn--maps" id="maps-link" href="#" target="_blank" rel="noopener">
+            Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer reveal">
+    <div class="footer__rule" aria-hidden="true"></div>
+    <p class="footer__note" id="footer-note">—</p>
+  </footer>
+
+  <script src="event.js"></script>
+  <script src="guests.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
