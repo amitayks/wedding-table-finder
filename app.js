@@ -50,6 +50,8 @@
     text("venue-name", EVENT.venue.name);
     text("venue-address", EVENT.venue.address);
     text("footer-note", EVENT.footerNote || "");
+    var note = document.getElementById("venue-note");
+    if (note && EVENT.venue.note) { note.textContent = EVENT.venue.note; note.hidden = false; }
     var waze = document.getElementById("waze-link");
     var maps = document.getElementById("maps-link");
     if (waze) waze.href = EVENT.venue.wazeUrl;
@@ -203,7 +205,7 @@
     canvas.height = h * dpr;
     ctx.scale(dpr, dpr);
 
-    var colors = ["#b08d43", "#cbb26a", "#1e3a2f", "#2e5244", "#e8d9b8"];
+    var colors = ["#a97e3f", "#c9a86a", "#4a3421", "#63482e", "#e8d9b8"];
     var parts = [];
     for (var i = 0; i < 90; i++) {
       parts.push({
