@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>preview states</title>
+<style>
+  body { margin:0; background:#222; display:flex; gap:16px; padding:16px; font-family:sans-serif; }
+  .slot { display:flex; flex-direction:column; gap:6px; }
+  .slot span { color:#eee; font-size:13px; text-align:center; }
+  iframe { width:390px; height:844px; border:0; border-radius:14px; background:#fff; }
+</style>
+</head>
+<body>
+  <div class="slot"><span>hero</span><iframe id="f1" src="index.html"></iframe></div>
+  <div class="slot"><span>suggestions (ambiguous)</span><iframe id="f2" src="index.html"></iframe></div>
+  <div class="slot"><span>table reveal</span><iframe id="f3" src="index.html"></iframe></div>
+  <div class="slot"><span>no match</span><iframe id="f4" src="index.html"></iframe></div>
+<script>
+function drive(id, fn) {
+  var f = document.getElementById(id);
+  f.addEventListener('load', function () { setTimeout(function(){ fn(f.contentWindow, f.contentDocument); }, 1600); });
+}
+function type(d, v) {
+  var i = d.getElementById('guest-input');
+  i.value = v;
+  i.dispatchEvent(new Event('input', {bubbles:true}));
+}
+drive('f2', function (w, d) {
+  d.getElementById('finder').scrollIntoView && d.getElementById('guest-input').scrollIntoView({block:'center'});
+  type(d, 'רון');
+});
+drive('f3', function (w, d) {
+  type(d, 'יוסי כהן');
+  setTimeout(function(){ d.querySelector('#suggestions li').click(); }, 300);
+});
+drive('f4', function (w, d) {
+  type(d, 'שם שלא ברשימה');
+  var i = d.getElementById('guest-input');
+  i.dispatchEvent(new KeyboardEvent('keydown', {key:'Enter', bubbles:true}));
+  setTimeout(function(){ i.scrollIntoView({block:'center'}); }, 300);
+});
+</script>
+</body>
+</html>
