@@ -4,15 +4,15 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* palette */
-  --cream: #faf6ef;
-  --cream-deep: #f3ecdf;
-  --forest: #1e3a2f;
-  --forest-soft: #2e5244;
-  --gold: #b08d43;
-  --gold-soft: #cbb26a;
-  --gold-faint: rgba(176, 141, 67, 0.16);
-  --ink-muted: rgba(30, 58, 47, 0.62);
+  /* palette — warm rustic, matched to the invitation (dried flowers / kraft) */
+  --cream: #faf5ec;
+  --cream-deep: #f2e9d8;
+  --forest: #4a3421;
+  --forest-soft: #63482e;
+  --gold: #a97e3f;
+  --gold-soft: #c9a86a;
+  --gold-faint: rgba(169, 126, 63, 0.16);
+  --ink-muted: rgba(74, 52, 33, 0.62);
 
   /* type */
   --font-display: "Frank Ruhl Libre", "David Libre", Georgia, "Times New Roman", serif;
@@ -72,7 +72,7 @@ body {
   width: 36vw; height: 36vw;
   inset-inline-end: -14vw;
   top: 72vh;
-  background: rgba(46, 82, 68, 0.10);
+  background: rgba(99, 72, 46, 0.10);
 }
 
 /* ═══════════ HERO ═══════════ */
@@ -148,14 +148,14 @@ body {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 0.02em;
-  box-shadow: 0 14px 34px -14px rgba(30, 58, 47, 0.55);
+  box-shadow: 0 14px 34px -14px rgba(74, 52, 33, 0.55);
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease, background 0.35s ease;
 }
 .hero__cta:hover,
 .hero__cta:focus-visible {
   transform: translateY(-3px);
   background: var(--forest-soft);
-  box-shadow: 0 20px 40px -14px rgba(30, 58, 47, 0.6);
+  box-shadow: 0 20px 40px -14px rgba(74, 52, 33, 0.6);
 }
 .hero__cta:active { transform: translateY(-1px) scale(0.98); }
 
@@ -234,16 +234,16 @@ body {
   text-align: center;
   color: var(--forest);
   background: #fff;
-  border: 1.5px solid rgba(30, 58, 47, 0.14);
+  border: 1.5px solid rgba(74, 52, 33, 0.14);
   border-radius: var(--radius);
   outline: none;
-  box-shadow: 0 10px 30px -18px rgba(30, 58, 47, 0.35);
+  box-shadow: 0 10px 30px -18px rgba(74, 52, 33, 0.35);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
 }
-.finder__input::placeholder { color: rgba(30, 58, 47, 0.35); }
+.finder__input::placeholder { color: rgba(74, 52, 33, 0.35); }
 .finder__input:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 4px var(--gold-faint), 0 14px 34px -18px rgba(30, 58, 47, 0.4);
+  box-shadow: 0 0 0 4px var(--gold-faint), 0 14px 34px -18px rgba(74, 52, 33, 0.4);
   transform: translateY(-2px);
 }
 
@@ -270,8 +270,8 @@ body {
   text-align: start;
   background: #fff;
   border-radius: var(--radius);
-  border: 1px solid rgba(30, 58, 47, 0.1);
-  box-shadow: 0 24px 50px -22px rgba(30, 58, 47, 0.45);
+  border: 1px solid rgba(74, 52, 33, 0.1);
+  box-shadow: 0 24px 50px -22px rgba(74, 52, 33, 0.45);
   overflow: hidden;
   position: absolute;
   inset-inline: 0;
@@ -296,7 +296,7 @@ body {
   min-height: 44px;
   transition: background 0.18s ease;
 }
-.finder__suggestions li + li { border-top: 1px solid rgba(30, 58, 47, 0.07); }
+.finder__suggestions li + li { border-top: 1px solid rgba(74, 52, 33, 0.07); }
 .finder__suggestions li:hover,
 .finder__suggestions li.is-active { background: var(--gold-faint); }
 .finder__suggestions .sug-table {
@@ -315,7 +315,7 @@ body {
   background: #fff;
   border-radius: calc(var(--radius) + 6px);
   border: 1px solid rgba(176, 141, 67, 0.35);
-  box-shadow: 0 30px 60px -26px rgba(30, 58, 47, 0.5);
+  box-shadow: 0 30px 60px -26px rgba(74, 52, 33, 0.5);
   overflow: hidden;
 }
 .result.is-in { animation: cardIn 0.7s var(--ease-spring) both; }
@@ -362,7 +362,7 @@ body {
 .result__again,
 .nomatch__again {
   margin-top: 1.4rem;
-  border: 1.5px solid rgba(30, 58, 47, 0.2);
+  border: 1.5px solid rgba(74, 52, 33, 0.2);
   background: none;
   color: var(--forest);
   font: inherit;
@@ -387,8 +387,8 @@ body {
   padding: 2rem 1.8rem;
   background: #fff;
   border-radius: calc(var(--radius) + 6px);
-  border: 1px solid rgba(30, 58, 47, 0.1);
-  box-shadow: 0 24px 50px -24px rgba(30, 58, 47, 0.4);
+  border: 1px solid rgba(74, 52, 33, 0.1);
+  box-shadow: 0 24px 50px -24px rgba(74, 52, 33, 0.4);
 }
 .nomatch.is-in { animation: cardIn 0.6s var(--ease-out) both; }
 .nomatch__title { margin: 0; font-weight: 500; font-size: 1.15rem; }
@@ -455,6 +455,16 @@ body {
   font-weight: 500;
 }
 .venue__address { margin: 0.2rem 0 0; color: var(--ink-muted); font-weight: 300; }
+.venue__note {
+  margin: 1rem auto 0;
+  display: inline-block;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  background: var(--gold-faint);
+  color: var(--forest);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
 
 .venue__nav {
   margin-top: 1.8rem;
@@ -477,11 +487,11 @@ body {
 .venue__btn--waze {
   background: var(--forest);
   color: var(--cream);
-  box-shadow: 0 14px 30px -14px rgba(30, 58, 47, 0.55);
+  box-shadow: 0 14px 30px -14px rgba(74, 52, 33, 0.55);
 }
 .venue__btn--waze:hover { background: var(--forest-soft); transform: translateY(-3px); }
 .venue__btn--maps {
-  border: 1.5px solid rgba(30, 58, 47, 0.22);
+  border: 1.5px solid rgba(74, 52, 33, 0.22);
   color: var(--forest);
   background: none;
 }
