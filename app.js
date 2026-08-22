@@ -46,7 +46,7 @@
     text("groom-name", EVENT.couple.groom);
     text("bride-name", EVENT.couple.bride);
     text("event-date", EVENT.dateDisplay);
-    text("hero-venue", EVENT.venue.name + " · " + EVENT.venue.address);
+    text("hero-venue", EVENT.venue.name);
     text("venue-name", EVENT.venue.name);
     text("venue-address", EVENT.venue.address);
     text("footer-note", EVENT.footerNote || "");
