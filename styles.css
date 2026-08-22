@@ -185,8 +185,12 @@ body {
   font-weight: 500;
   letter-spacing: 0.06em;
 }
-.hero__date .date-part { display: inline; }
-.hero__date .date-sep { display: inline; color: var(--gold); }
+.hero__date .date-part { display: block; }
+.hero__date .date-sep { display: none; }
+@media (min-width: 701px) {
+  .hero__date .date-part { display: inline; }
+  .hero__date .date-sep { display: inline; color: var(--gold); }
+}
 
 .hero__venue-line {
   margin: 0;
