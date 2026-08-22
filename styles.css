@@ -75,6 +75,49 @@ body {
   background: rgba(99, 72, 46, 0.10);
 }
 
+/* ═══════════ BOTANICALS ═══════════ */
+.hero__botanical {
+  position: absolute;
+  width: clamp(180px, 34vw, 380px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  filter: drop-shadow(0 10px 24px rgba(74, 52, 33, 0.12));
+  transform-origin: top center;
+  animation: botanicalSway 9s ease-in-out infinite alternate;
+}
+.hero__botanical--start {
+  top: -3%;
+  inset-inline-start: -6%;
+  rotate: 8deg;
+}
+.hero__botanical--end {
+  bottom: -4%;
+  inset-inline-end: -7%;
+  transform: scaleX(-1) rotate(174deg);
+  opacity: 0.85;
+  animation-delay: -4.5s;
+}
+@keyframes botanicalSway {
+  from { translate: 0 0; }
+  to   { translate: 0 10px; }
+}
+
+.section__sprig {
+  display: block;
+  width: clamp(150px, 32vw, 210px);
+  margin: 0 auto 0.9rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer__sprig {
+  display: block;
+  width: 170px;
+  margin: 0 auto 1.2rem;
+  pointer-events: none;
+}
+
 /* ═══════════ HERO ═══════════ */
 .hero {
   position: relative;
@@ -558,6 +601,7 @@ body {
   .result.is-in .result__table,
   .nomatch.is-in { animation: none !important; }
   .hero__scroll-dot { animation: none; }
+  .hero__botanical { animation: none; }
   * { transition-duration: 0.01ms !important; }
 }
 
