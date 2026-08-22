@@ -14,9 +14,10 @@ const EVENT = {
 
   venue: {
     name: "חוות שחרית",
-    address: "מחפשים בוויז: \"חוות שחרית\"",
-    wazeUrl: "https://waze.com/ul?q=חוות שחרית",
-    mapsUrl: "https://maps.google.com/?q=חוות שחרית",
+    address: "לניווט מדויק השתמשו בכפתורים כאן למטה",
+    /* קואורדינטות מדויקות מהקישור של עמיתי (23.08): 32.088260, 35.073531 */
+    wazeUrl: "https://waze.com/ul?ll=32.088260,35.073531&navigate=yes",
+    mapsUrl: "https://maps.app.goo.gl/59pnq5gYh3wnEFqQ7",
     note: "מומלץ להגיע עם נעליים נוחות",
   },
 
