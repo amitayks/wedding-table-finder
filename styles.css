@@ -102,6 +102,11 @@ body {
   from { translate: 0 0; }
   to   { translate: 0 10px; }
 }
+.hero > *:not(.hero__botanical) { position: relative; z-index: 1; }
+@media (max-width: 700px) {
+  .hero__botanical--end { display: none; }
+  .hero__botanical--start { width: clamp(220px, 56vw, 300px); top: -2%; inset-inline-start: -10%; }
+}
 
 .section__sprig {
   display: block;
