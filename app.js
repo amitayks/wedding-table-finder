@@ -45,7 +45,22 @@
   function renderEvent() {
     text("groom-name", EVENT.couple.groom);
     text("bride-name", EVENT.couple.bride);
-    text("event-date", EVENT.dateDisplay);
+    var dateEl = document.getElementById("event-date");
+    if (dateEl) {
+      dateEl.innerHTML = "";
+      EVENT.dateDisplay.split(" \u00b7 ").forEach(function (part, i) {
+        if (i > 0) {
+          var sep = document.createElement("span");
+          sep.className = "date-sep";
+          sep.textContent = " \u00b7 ";
+          dateEl.appendChild(sep);
+        }
+        var sp = document.createElement("span");
+        sp.className = "date-part";
+        sp.textContent = part;
+        dateEl.appendChild(sp);
+      });
+    }
     text("hero-venue", EVENT.venue.name);
     text("venue-name", EVENT.venue.name);
     text("venue-address", EVENT.venue.address);
