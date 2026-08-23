@@ -67,6 +67,8 @@
     text("footer-note", EVENT.footerNote || "");
     var note = document.getElementById("venue-note");
     if (note && EVENT.venue.note) { note.textContent = EVENT.venue.note; note.hidden = false; }
+    var mapCard = document.getElementById("map-link");
+    if (mapCard) mapCard.href = EVENT.venue.wazeUrl;
     var waze = document.getElementById("waze-link");
     var maps = document.getElementById("maps-link");
     if (waze) waze.href = EVENT.venue.wazeUrl;
