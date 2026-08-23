@@ -104,6 +104,17 @@
     }
   }
 
+  /* shared-element morph between the search box and the result cards */
+  function morph(mutate, after) {
+    if (!REDUCED && document.startViewTransition) {
+      var t = document.startViewTransition(mutate);
+      if (after) t.finished.then(after).catch(after);
+    } else {
+      mutate();
+      if (after) after();
+    }
+  }
+
   function closeSuggestions() {
     sugList.classList.remove("is-open");
     sugList.innerHTML = "";
@@ -118,7 +129,7 @@
       name.textContent = g.name;
       var tbl = document.createElement("span");
       tbl.className = "sug-table";
-      tbl.textContent = "שולחן " + g.table;
+      tbl.textContent = String(g.table).length > 2 ? g.zone : "שולחן " + g.table + " · " + g.zone;
       li.appendChild(name);
       li.appendChild(tbl);
       li.addEventListener("click", function () { select(g); });
@@ -129,27 +140,44 @@
 
   function select(guest) {
     closeSuggestions();
-    hide(nomatchCard);
     text("result-name", guest.name + " 🤍");
-    text("result-table", String(guest.table));
-    show(resultCard);
-    resultCard.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "center" });
-    if (!REDUCED) confettiBurst();
+    var tableEl = document.getElementById("result-table");
+    tableEl.textContent = String(guest.table);
+    tableEl.classList.toggle("result__table--text", String(guest.table).length > 2);
+    text("result-zone", guest.zone || "");
+    var finderBox = document.getElementById("finder-box");
+    morph(function () {
+      hide(nomatchCard);
+      finderBox.hidden = true;
+      show(resultCard);
+    }, function () {
+      resultCard.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "center" });
+      if (!REDUCED) confettiBurst();
+    });
   }
 
   function showNoMatch() {
     closeSuggestions();
-    hide(resultCard);
-    show(nomatchCard);
+    var finderBox = document.getElementById("finder-box");
+    morph(function () {
+      hide(resultCard);
+      finderBox.hidden = true;
+      show(nomatchCard);
+    });
   }
 
   function resetSearch() {
-    hide(resultCard);
-    hide(nomatchCard);
+    var finderBox = document.getElementById("finder-box");
     input.value = "";
     clearBtn.hidden = true;
     closeSuggestions();
-    input.focus();
+    morph(function () {
+      hide(resultCard);
+      hide(nomatchCard);
+      finderBox.hidden = false;
+    }, function () {
+      input.focus();
+    });
   }
 
   function onInput() {
