@@ -85,7 +85,10 @@ body {
   z-index: 0;
   width: 92px;
   height: 390px;
-  top: 16%;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .flora--left  { left: 0; }
 .flora--right { right: 0; }
@@ -93,7 +96,7 @@ body {
 .flora--left img  { left: -30px; }
 .flora--right img { left: 0; }
 @media (min-width: 701px) {
-  .flora { width: 238px; height: 520px; top: 6%; }
+  .flora { width: 238px; height: 520px; }
   
   .flora img { width: 340px; }
 }
