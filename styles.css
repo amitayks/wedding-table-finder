@@ -555,36 +555,67 @@ body {
   font-weight: 500;
 }
 
+.venue__map {
+  display: block;
+  position: relative;
+  margin: 1.6rem auto 0;
+  max-width: 480px;
+  border-radius: calc(var(--radius) + 6px);
+  overflow: hidden;
+  border: 1px solid rgba(176, 141, 67, 0.4);
+  box-shadow: 0 24px 50px -24px rgba(74, 52, 33, 0.5);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+}
+.venue__map:hover { transform: translateY(-3px); box-shadow: 0 30px 60px -24px rgba(74, 52, 33, 0.55); }
+.venue__map img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.venue__map-hint {
+  position: absolute;
+  bottom: 10px;
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
+  background: rgba(74, 52, 33, 0.82);
+  color: var(--cream);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+}
+[dir="rtl"] .venue__map-hint { translate: 50% 0; }
+
 .venue__nav {
-  margin-top: 1.8rem;
+  margin-top: 1.4rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.9rem;
   justify-content: center;
 }
-.venue__btn {
-  display: inline-flex;
+.venue__tile {
+  width: 108px;
+  height: 108px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0.8rem 1.9rem;
-  border-radius: 999px;
+  gap: 0.55rem;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1.5px solid rgba(74, 52, 33, 0.16);
+  color: var(--forest);
   text-decoration: none;
   font-weight: 500;
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease, background 0.3s ease;
+  font-size: 0.88rem;
+  box-shadow: 0 12px 28px -16px rgba(74, 52, 33, 0.4);
+  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-.venue__btn--waze {
-  background: var(--forest);
-  color: var(--cream);
-  box-shadow: 0 14px 30px -14px rgba(74, 52, 33, 0.55);
+.venue__tile svg { color: var(--gold); }
+.venue__tile:hover,
+.venue__tile:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  background: var(--gold-faint);
+  box-shadow: 0 20px 40px -16px rgba(74, 52, 33, 0.5);
 }
-.venue__btn--waze:hover { background: var(--forest-soft); transform: translateY(-3px); }
-.venue__btn--maps {
-  border: 1.5px solid rgba(74, 52, 33, 0.22);
-  color: var(--forest);
-  background: none;
-}
-.venue__btn--maps:hover { border-color: var(--gold); background: var(--gold-faint); transform: translateY(-3px); }
+.venue__tile:active { transform: translateY(-1px) scale(0.97); }
 
 /* ═══════════ FOOTER ═══════════ */
 .footer {
