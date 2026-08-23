@@ -267,7 +267,7 @@ body {
 }
 
 /* ═══════════ FINDER ═══════════ */
-.finder { background: linear-gradient(180deg, transparent, var(--cream-deep) 18%, var(--cream-deep) 82%, transparent); }
+.finder { background: linear-gradient(180deg, transparent, var(--cream-deep) 18%, var(--cream-deep) 82%, transparent); z-index: 2; }
 
 .finder__hint {
   margin: 0 0 1.8rem;
@@ -432,6 +432,39 @@ body {
   border-color: var(--gold);
   background: var(--gold-faint);
   transform: translateY(-2px);
+}
+
+
+.result__zone {
+  margin: 0.3rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.result__table--text {
+  font-size: clamp(2rem, 9vw, 3.2rem);
+  line-height: 1.2;
+  padding-block: 0.4rem;
+}
+
+/* shared-element morph: search box ⇄ result cards */
+#finder-box { view-transition-name: finder-card; }
+#result     { view-transition-name: finder-card; }
+#nomatch    { view-transition-name: finder-card; }
+::view-transition-group(finder-card) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-old(finder-card),
+::view-transition-new(finder-card) {
+  height: 100%;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(finder-card),
+  ::view-transition-old(finder-card),
+  ::view-transition-new(finder-card) { animation: none !important; }
 }
 
 /* ── no match ── */
