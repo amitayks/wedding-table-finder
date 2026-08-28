@@ -617,6 +617,68 @@ body {
 }
 .venue__tile:active { transform: translateY(-1px) scale(0.97); }
 
+
+/* ═══════════ VIDEO ═══════════ */
+.video { background: linear-gradient(180deg, transparent, var(--cream-deep) 18%, var(--cream-deep) 82%, transparent); }
+.video__frame {
+  margin: 1.6rem auto 0;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--radius) + 6px);
+  overflow: hidden;
+  border: 1px solid rgba(176, 141, 67, 0.4);
+  box-shadow: 0 30px 60px -26px rgba(74, 52, 33, 0.55);
+  background: #000;
+}
+.video__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ═══════════ GUEST UPLOADS ═══════════ */
+.share__hint { margin: 0 0 1.6rem; color: var(--ink-muted); font-weight: 300; }
+.share__drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 440px;
+  margin-inline: auto;
+  padding: 2.2rem 1.6rem;
+  background: #fff;
+  border: 2px dashed rgba(169, 126, 63, 0.5);
+  border-radius: calc(var(--radius) + 6px);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.3s var(--ease-spring);
+}
+.share__drop:hover, .share__drop.is-drag {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+  transform: translateY(-3px);
+}
+.share__drop-icon { font-size: 1.6rem; color: var(--gold); }
+.share__drop-text { font-weight: 500; }
+.share__drop-sub { font-size: 0.85rem; color: var(--ink-muted); font-weight: 300; }
+.share__list {
+  list-style: none;
+  margin: 1.2rem auto 0;
+  padding: 0;
+  max-width: 440px;
+  text-align: start;
+}
+.share__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  background: #fff;
+  border: 1px solid rgba(74, 52, 33, 0.1);
+  border-radius: 12px;
+  margin-top: 0.45rem;
+  font-size: 0.92rem;
+}
+.share__file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.share__status { color: var(--gold); font-weight: 500; white-space: nowrap; }
+.share__list li.is-ok .share__status { color: #4a7c59; }
+.share__list li.is-err .share__status { color: #a05252; }
+
 /* ═══════════ FOOTER ═══════════ */
 .footer {
   text-align: center;
