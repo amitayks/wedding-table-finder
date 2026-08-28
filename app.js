@@ -221,6 +221,74 @@
     });
   }
 
+  /* ══════════ Video embed ══════════ */
+  function wireVideo() {
+    var f = document.getElementById("video-embed");
+    if (f && EVENT.video && EVENT.video.embedUrl) f.src = EVENT.video.embedUrl;
+  }
+
+  /* ══════════ Guest uploads ══════════ */
+  function wireShare() {
+    var input = document.getElementById("share-input");
+    var drop = document.getElementById("share-drop");
+    var list = document.getElementById("share-list");
+    if (!input || !EVENT.upload) return;
+
+    function row(file) {
+      var li = document.createElement("li");
+      var name = document.createElement("span");
+      name.className = "share__file";
+      name.textContent = file.name;
+      var st = document.createElement("span");
+      st.className = "share__status";
+      st.textContent = "0%";
+      li.appendChild(name); li.appendChild(st);
+      list.appendChild(li);
+      return { li: li, st: st };
+    }
+
+    function uploadOne(file) {
+      var r = row(file);
+      if (file.size > EVENT.upload.maxMB * 1024 * 1024) {
+        r.st.textContent = "גדול מדי (עד " + EVENT.upload.maxMB + "MB)";
+        r.li.classList.add("is-err");
+        return;
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", EVENT.upload.endpoint);
+      xhr.setRequestHeader("content-type", file.type || "application/octet-stream");
+      xhr.setRequestHeader("x-filename", encodeURIComponent(file.name));
+      xhr.upload.onprogress = function (e) {
+        if (e.lengthComputable) r.st.textContent = Math.round(100 * e.loaded / e.total) + "%";
+      };
+      xhr.onload = function () {
+        var ok = false;
+        try { ok = xhr.status === 200 && JSON.parse(xhr.responseText).ok; } catch (e) {}
+        r.st.textContent = ok ? "עלה! 🤍" : "נכשל — נסו שוב";
+        r.li.classList.add(ok ? "is-ok" : "is-err");
+      };
+      xhr.onerror = function () {
+        r.st.textContent = "נכשל — נסו שוב";
+        r.li.classList.add("is-err");
+      };
+      xhr.send(file);
+    }
+
+    input.addEventListener("change", function () {
+      Array.prototype.slice.call(input.files).forEach(uploadOne);
+      input.value = "";
+    });
+    ["dragover","dragenter"].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("is-drag"); });
+    });
+    ["dragleave","drop"].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("is-drag"); });
+    });
+    drop.addEventListener("drop", function (e) {
+      Array.prototype.slice.call(e.dataTransfer.files).forEach(uploadOne);
+    });
+  }
+
   /* ══════════ Scroll reveals ══════════ */
   function wireReveals() {
     var targets = document.querySelectorAll(".reveal");
@@ -294,6 +362,8 @@
   /* ══════════ Boot ══════════ */
   function boot() {
     renderEvent();
+    wireVideo();
+    wireShare();
     wireFinder();
     wireReveals();
   }
