@@ -618,21 +618,8 @@ body {
 .venue__tile:active { transform: translateY(-1px) scale(0.97); }
 
 
-/* ═══════════ VIDEO ═══════════ */
-.video { background: linear-gradient(180deg, transparent, var(--cream-deep) 18%, var(--cream-deep) 82%, transparent); }
-.video__frame {
-  margin: 1.6rem auto 0;
-  max-width: 640px;
-  aspect-ratio: 16 / 9;
-  border-radius: calc(var(--radius) + 6px);
-  overflow: hidden;
-  border: 1px solid rgba(176, 141, 67, 0.4);
-  box-shadow: 0 30px 60px -26px rgba(74, 52, 33, 0.55);
-  background: #000;
-}
-.video__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-
 /* ═══════════ GUEST UPLOADS ═══════════ */
+.share { background: linear-gradient(180deg, transparent, var(--cream-deep) 18%, var(--cream-deep) 82%, transparent); }
 .share__hint { margin: 0 0 1.6rem; color: var(--ink-muted); font-weight: 300; }
 .share__drop {
   display: flex;
