@@ -221,12 +221,6 @@
     });
   }
 
-  /* ══════════ Video embed ══════════ */
-  function wireVideo() {
-    var f = document.getElementById("video-embed");
-    if (f && EVENT.video && EVENT.video.embedUrl) f.src = EVENT.video.embedUrl;
-  }
-
   /* ══════════ Guest uploads ══════════ */
   function wireShare() {
     var input = document.getElementById("share-input");
@@ -362,7 +356,6 @@
   /* ══════════ Boot ══════════ */
   function boot() {
     renderEvent();
-    wireVideo();
     wireShare();
     wireFinder();
     wireReveals();
