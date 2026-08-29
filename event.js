@@ -27,9 +27,6 @@ const EVENT = {
   ],
 
   // אחרי החתונה: סרטון + העלאות אורחים
-  video: {
-    embedUrl: "https://drive.google.com/file/d/1LbCgrsw4oE4cXsHivYEmihhrf5EeYXpR/preview",
-  },
   upload: {
     endpoint: "https://wedding-uploads.keisarcontentcreator.workers.dev/",
     maxMB: 100,
