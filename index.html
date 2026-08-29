@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <style>
     html, body { overflow-x: hidden; overflow-x: clip; }
     .flora{position:absolute;overflow:hidden;pointer-events:none;z-index:0;width:92px;height:390px;top:0;bottom:0;margin-top:auto;margin-bottom:auto}
@@ -46,24 +46,13 @@
     </h1>
     <p class="hero__date reveal-load" data-stagger="3" id="event-date">—</p>
     <p class="hero__venue-line reveal-load" data-stagger="4" id="hero-venue">—</p>
-    <a class="hero__cta reveal-load" data-stagger="5" href="#video">לסרטון החתונה ✦</a>
+    <a class="hero__cta reveal-load" data-stagger="5" href="#share">שתפו את התמונות שלכם ✦</a>
     <div class="hero__scroll reveal-load" data-stagger="6" aria-hidden="true">
       <span class="hero__scroll-dot"></span>
     </div>
   </header>
 
   <main>
-    <!-- ═══════════ VIDEO ═══════════ -->
-    <section class="video section" id="video" aria-labelledby="video-title">
-      <div class="section__inner reveal">
-        <img class="section__sprig" src="assets/sprig.webp" alt="" aria-hidden="true" />
-        <p class="section__overline">הרגע הגדול</p>
-        <h2 class="section__title" id="video-title">סרטון החתונה</h2>
-        <div class="video__frame">
-          <iframe id="video-embed" src="" title="סרטון החתונה" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══════════ GUEST UPLOADS ═══════════ -->
     <section class="share section" id="share" aria-labelledby="share-title">
@@ -79,6 +68,18 @@
           <span class="share__drop-sub">אפשר לבחור כמה קבצים יחד · עד 100MB לקובץ</span>
         </label>
         <ul class="share__list" id="share-list"></ul>
+      </div>
+    </section>
+
+    <!-- ═══════════ VIDEO ═══════════ -->
+    <section class="video section" id="video" aria-labelledby="video-title">
+      <div class="section__inner reveal">
+        <img class="section__sprig" src="assets/sprig.webp" alt="" aria-hidden="true" />
+        <p class="section__overline">הרגע הגדול</p>
+        <h2 class="section__title" id="video-title">סרטון החתונה</h2>
+        <div class="video__frame">
+          <iframe id="video-embed" src="" title="סרטון החתונה" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
     </section>
 
